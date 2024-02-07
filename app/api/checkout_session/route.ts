@@ -39,7 +39,7 @@ export async function POST(req: any, res: NextResponse) {
             cancel_url: `${headersList.get("origin")}/`,
         });
 
-        return NextResponse.json({sessionId: session.id});
+        return NextResponse.json({sessionId: session.id , status: 201});
     } catch (err) {
         console.log(err)
         return NextResponse.json({error: "Error creating checkout session"});
