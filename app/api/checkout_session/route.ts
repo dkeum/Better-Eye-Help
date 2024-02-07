@@ -11,10 +11,6 @@ export async function POST(req: any, res: NextResponse) {
     const cartDetailsArray: CartItem[] = Object.values(cartDetails) as CartItem[];
 
     console.log(cartDetails)
-    // const rawBody = await buffer(req.body)
-    // console.log(rawBody)
-
-    
 
 
     const lineItems = cartDetailsArray.map((item: CartItem) => {
