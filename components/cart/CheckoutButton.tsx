@@ -9,6 +9,7 @@ export default function CheckoutButton() {
             
 
             console.log("trying step 1:")
+            //https://brianhhough.com/techstackplaybook/stripe-sdk-invalid-value-for-stripe-apikey-should-be-a-string-you-specified-undefined
             const stripe = await loadStripe(process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISHABLE_KEY! as string);
             console.log("trying step 2:")
             if (!stripe) throw new Error('Stripe failed to initialize.');
@@ -23,6 +24,7 @@ export default function CheckoutButton() {
             console.log("trying step 4:")
 
             const {sessionId} = await checkoutResponse.json();
+            console.log(sessionId)
             const stripeError = await stripe.redirectToCheckout({sessionId});
 
             if (stripeError) {
