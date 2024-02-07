@@ -21,6 +21,8 @@ export default function CheckoutButton() {
                 },
                 body: JSON.stringify({cartDetails}),
             });
+
+            console.log(checkoutResponse)
             console.log("trying step 4:")
 
             const {sessionId} = await checkoutResponse.json();
