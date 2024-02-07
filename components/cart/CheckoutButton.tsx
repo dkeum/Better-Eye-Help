@@ -9,7 +9,7 @@ export default function CheckoutButton() {
             
 
             console.log("trying step 1:")
-            const stripe = await loadStripe(process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISHABLE_KEY!);
+            const stripe = await loadStripe(process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISHABLE_KEY! as string);
             console.log("trying step 2:")
             if (!stripe) throw new Error('Stripe failed to initialize.');
             console.log("trying step 3:")
