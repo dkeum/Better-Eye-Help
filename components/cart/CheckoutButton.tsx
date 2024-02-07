@@ -14,7 +14,10 @@ export default function CheckoutButton() {
             console.log("trying step 2:")
             if (!stripe) throw new Error('Stripe failed to initialize.');
             console.log("trying step 3:")
-            const checkoutResponse = await fetch(`${process.env.PRODUCTION_ENV}/api/checkout_session`, {
+
+            const apiRoute =  `/api/checkout_session`
+            console.log(apiRoute)
+            const checkoutResponse = await fetch(apiRoute, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
