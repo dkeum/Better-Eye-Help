@@ -6,11 +6,13 @@ export default function CheckoutButton() {
 
     const redirectToCheckout = async () => {
         try {
+            
 
+            console.log("trying step 1:")
             const stripe = await loadStripe(process.env.NEXT_PUBLIC_TEST_STRIPE_PUBLISHABLE_KEY!);
-
+            console.log("trying step 2:")
             if (!stripe) throw new Error('Stripe failed to initialize.');
-
+            console.log("trying step 3:")
             const checkoutResponse = await fetch('/api/checkout_session', {
                 method: 'POST',
                 headers: {
@@ -18,6 +20,7 @@ export default function CheckoutButton() {
                 },
                 body: JSON.stringify({cartDetails}),
             });
+            console.log("trying step 4:")
 
             const {sessionId} = await checkoutResponse.json();
             const stripeError = await stripe.redirectToCheckout({sessionId});
