@@ -2,13 +2,21 @@ import {NextRequest, NextResponse} from "next/server";
 import {headers} from "next/headers";
 import stripe from "@/stripe/utils/get-stripejs";
 import { CartItem } from "@/components/cart/Cartitem";
+import { buffer } from "micro";
 
+
+export const config = {
+    api: {
+      bodyParser: false,
+    },
+  };
 
 export async function POST(req: NextRequest, res: NextResponse) {
     const headersList = headers();
     const {cartDetails} = await req.json();
     const cartDetailsArray: CartItem[] = Object.values(cartDetails) as CartItem[];
 
+    // const rawBody = await buffer(req)
 
     console.log(cartDetails)
 
