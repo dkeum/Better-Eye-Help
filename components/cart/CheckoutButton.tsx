@@ -28,9 +28,9 @@ export default function CheckoutButton() {
             console.log(checkoutResponse)
             console.log("trying step 4:")
 
-            const {sessionId,status } = await checkoutResponse.json();
-            console.log(sessionId, status)
-            const stripeError = await stripe.redirectToCheckout({sessionId});
+            const response  = await checkoutResponse.json();
+            console.log(response)
+            const stripeError = await stripe.redirectToCheckout(response.sessionId);
 
             if (stripeError) {
                 console.error(stripeError);
