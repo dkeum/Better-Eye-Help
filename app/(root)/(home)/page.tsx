@@ -23,9 +23,9 @@ export default async function Home() {
     <div className="bg-slate-50">
       
       <HeroContent />
-      <HeroCarousel className="md:-mt-32 my-5" options={OPTIONS}/>
+      <HeroCarousel className="md:-mt-32 my-5 z-40" options={OPTIONS}/>
 
-      <Badges className="my-10"/>
+      <Badges className="py-20 mt-10 z-30"/>
 
       <div className="flex flex-col mt-10  ">
         {pageContents

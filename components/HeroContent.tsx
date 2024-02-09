@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroContent = () => {
   return (
@@ -19,7 +20,7 @@ const HeroContent = () => {
             Welcome to Better Eye Health: Your Solution for Healthy Posture and
             Vision
           </h1>
-          <p>
+          <p className="text-white">
             In today's digital age, our eyes and posture are under constant
             strain from prolonged screen time, leading to potential health
             issues such as eye strain, neck and shoulder pain, and even vision
@@ -32,38 +33,40 @@ const HeroContent = () => {
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
               Learn More
             </button>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-              Live Demo
-            </button>
+            <Link href="/ViewDemo">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                Live Demo
+              </button>
+            </Link>
           </div>
         </div>
 
         <Card className="md:w-1/2 max-w-[480px] h-full ">
           <CardHeader>
-            <CardTitle className="text-center">
-              Improve your relationship with the screen
+            <CardTitle className="text-center bg-gradient-to-r from-pink-600 via-purple-500 to-indigo-400 inline-block text-transparent bg-clip-text py-2 text-2xl">
+              Improve your Relationship with the Screen
             </CardTitle>
             <CardDescription className="text-center ">
-              Take frequent breaks{" "}
+               Take your Screen Time to the Next Level{" "}
             </CardDescription>
           </CardHeader>
           <CardContent className="animate-[wiggle_1s_ease-in-out_infinite] ease-in-out duration-1000">
             <Image
-              className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 [clip-path:circle(50%_at_50%_50%)]"
+              className="mx-auto md:mx-0 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 [clip-path:circle(50%_at_50%_50%)]"
               src="/hero.jpg"
               alt="hero"
               width={200}
               height={200}
             />
             <Image
-              className="md:relative left-52 bottom-[4.2rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 [clip-path:circle(50%_at_50%_50%)]"
+              className="mx-auto md:mx-0 md:relative left-52 bottom-[4.2rem] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 [clip-path:circle(50%_at_50%_50%)]"
               src="/hero2.jpg"
               alt="hero"
               width={200}
               height={200}
             />
             <Image
-              className="md:relative bottom-40 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 [clip-path:circle(50%_at_50%_50%)]"
+              className="mx-auto md:mx-0 md:relative bottom-40 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 [clip-path:circle(50%_at_50%_50%)]"
               src="/hero3.jpg"
               alt="hero"
               width={200}

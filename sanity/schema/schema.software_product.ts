@@ -46,6 +46,13 @@ const software_product = {
         name:'stars',
         title:'Stars',
         type:'number',
+        initialValue: [],
+      },
+      {
+        name:'stars_list',
+        title:'Stars_List',
+        type:'array',
+        of: [{type: 'number'}],
         initialValue: 0,
       },
       {

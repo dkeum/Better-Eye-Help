@@ -6,6 +6,7 @@ import OpenCart from "@/components/cart/OpenCart";
 import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
 import CartItem from "./Cartitem";
 import CheckoutButton from "./CheckoutButton";
+import Image from "next/image";
 
 export default function CartModal() {
   const [openCart, setOpenCart] = useState(false);
@@ -15,7 +16,14 @@ export default function CartModal() {
   const renderCartMessages = (text: string) => {
     return (
       <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-        ICON
+         <Image
+          className="p-5 bg-gradient-to-r bg-indigo-300 via-blue-200 rounded-full"
+          src="/cart.png"
+          alt="cart icon"
+          width={70}
+          height={70}
+         />
+
         <p className="mt-6 text-center text-2xl font-bold">{text}</p>
       </div>
     );
@@ -30,7 +38,9 @@ export default function CartModal() {
         <Dialog
           as="div"
           className="relative z-20"
-          onClose={() => setOpenCart(false)}
+          onClose={() => 
+            setOpenCart(false)
+          }
         >
           <Transition.Child
             as={Fragment}
@@ -85,7 +95,7 @@ export default function CartModal() {
                             {totalPrice !== undefined && (
                               <p>
                                 {formatCurrencyString({
-                                  value: (totalPrice) | 0,
+                                  value: totalPrice | 0,
                                   currency: "CAD",
                                 })}
                               </p>
@@ -94,9 +104,9 @@ export default function CartModal() {
                           <p className="mt-0.5 text-sm text-gray-500">
                             Shipping and taxes calculated at checkout.
                           </p>
-                         
+
                           <div className="mt-6 flex justify-center flex-col text-center text-sm text-gray-500">
-                          <CheckoutButton />
+                            <CheckoutButton />
                             <p>
                               {" "}
                               or

@@ -15,6 +15,7 @@ export interface NavbarProps {
 
 const Navbar = ({ session }: NavbarProps) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   return (
     <div
@@ -64,15 +65,17 @@ const Navbar = ({ session }: NavbarProps) => {
 
 
 
-      <div className="md:hidden flex items-center mx-4">
-        {showSidebar ? (
+      <div className={`md:hidden flex items-center mx-4 ${showSidebar === false ? 'z-10' : 'z-50'}`}>
+        {!showCart && 
+        (showSidebar ?
+          (
           <button
-            className="text-center text-4xl min-w-[80px] ml-5 text-black items-center cursor-pointer z-50"
+            className="text-center text-4xl min-w-[80px] ml-5 text-white items-center cursor-pointer"
             onClick={() => setShowSidebar(!showSidebar)}
           >
             X
-          </button>
-        ) : (
+          </button>)
+         : (
           <svg
             onClick={() => setShowSidebar(!showSidebar)}
             className=" fill-black z-50 flex items-center cursor-pointer"
@@ -85,7 +88,7 @@ const Navbar = ({ session }: NavbarProps) => {
             <rect y="30" width="100" height="10"></rect>
             <rect y="60" width="100" height="10"></rect>
           </svg>
-        )}
+        ))}
       </div>
 
       <div
@@ -103,7 +106,11 @@ const Navbar = ({ session }: NavbarProps) => {
             <button>View Products</button>
           </Link>
 
-          <div className="bg-gradient-to-r from-pink-500 to-violet-500 hover:opacity-60 text-white font-bold py-2 px-4 rounded-full">
+          <div 
+            onClick={() => 
+              setShowSidebar(false) 
+            }
+            className="bg-gradient-to-r from-pink-500 to-violet-500 hover:opacity-60 text-white font-bold py-2 px-4 rounded-full z-40">
             <CartButton/>     
           </div>
         </h3>

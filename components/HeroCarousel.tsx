@@ -68,29 +68,29 @@ const HeroCarousel = ({ className, options }: HeroCarouselProps) => {
   ];
 
   return (
-    <div className={cn("embla max-w-screen-2xl w-2/3 md:flex md:flex-row md:items-center  mx-auto bg-gradient-to-r from-blue-600 to-purple-500 rounded-full",className)}>
+    <div className={cn("embla max-w-screen-2xl w-2/3 md:flex md:flex-row md:items-center md:justify-center mx-auto bg-gradient-to-r from-blue-600 to-purple-500 rounded-full " ,className)}>
       
-      <div className="w-[100px] h-[100px] bg-white invisible md:visible rounded-full flex justify-center items-center">
-        <div className="w-[50px] h-[50px] bg-black rounded-full"></div>
+      <div className="min-w-[60px] min-h-[60px] h-2/3 px-2 py-2 bg-white invisible md:visible rounded-full flex justify-center items-center ml-10">
+        <div className="min-w-[40px] min-h-[40px] bg-black rounded-full"></div>
       </div>
       
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container rounded-lg">
           {slides.map((imgPath, index) => (
             <Card
-              className="embla__slide min-w-[200px]"
+              className="embla__slide min-w-[250px] max-h-[400px] my-auto md:h-full"
               key={index}
               style={{
                 ...(tweenValues.length && { opacity: tweenValues[index] }),
               }}
             >
-              <CardContent>
-                <div className="my-5 z-50 text-2xl text-center font-bold">
+              <CardContent className="">
+                <div className="my-5 z-50 text-2xl text-center font-bold mx-auto ">
                   <span>{index+1}. {imgPath.title}</span>
                 </div>
 
                 <Image
-                  className="embla__slide__img"
+                  className="embla__slide__img mx-auto my-auto"
                   src={imgPath.img}
                   alt="Your alt text"
                   width={300}
@@ -103,8 +103,8 @@ const HeroCarousel = ({ className, options }: HeroCarouselProps) => {
         </div>
       </div>
 
-      <div className="w-[100px] h-[100px] bg-white invisible md:visible rounded-full flex justify-center items-center">
-        <div className="w-[50px] h-[50px] bg-black rounded-full"></div>
+      <div className="min-w-[60px] min-h-[60px] h-2/3 px-2 py-2 bg-white invisible md:visible rounded-full flex justify-center items-center mr-10">
+        <div className="min-w-[40px] min-h-[40px] bg-black rounded-full"></div>
       </div>
     </div>
   );
