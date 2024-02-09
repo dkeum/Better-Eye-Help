@@ -70,10 +70,6 @@ export const UpdateProductDownloads = async (
       .inc({ views: 1})
       .commit()
 
-      const views_query = await readClient.fetch(
-        `*[_id == "${_id}" ]`
-      )
-      console.log(views_query)
 
   } catch (error) {
     console.log(error);
@@ -105,7 +101,7 @@ export const UpdateProductRating = async ({
 
     // calculate the new mean
     const new_mean_rating = calculateAverage(currrent_star_list[0].stars_list);
-    console.log(new_mean_rating)
+   
 
     // update the stars
     const finalResult = await writeClient
